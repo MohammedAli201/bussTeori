@@ -1,0 +1,392 @@
+const QUESTIONS_DEL2 = [
+  {
+    "category": "(Data/BK)",
+    "question": "Hvor mange passasjerer er bussen maksimalt godkjent for når hver passasjer med bagasje veier 80 kg?",
+    "options": ["118 passasjerer", "140 passasjerer", "145 passasjerer", "149 passasjerer"],
+    "answer": 0,
+    "explanation": "",
+    "image":"images/del2/ques1.png"
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "I Nord-Trøndelag fylke skal du kjøre buss med luftfjæring på E6 fra Sør-Trøndelag grense til Nordland grense. Hva er største tillatte boggilast når akselavstanden er 136 cm?",
+    "options": ["15 000 kg", "18 000 kg", "19 000 kg", "20 000 kg"],
+    "answer": 2,
+    "explanation": "",
+    "image": null
+  },
+  {
+    "category": "Skilt/Fart",
+    "question": "Du kjører buss på sommerføre. Hva betyr skiltingen?",
+    "options": ["Påbudt fart er 40 km/t", "Minste anbefalte fart er 40 km/t", "Største tillatte fart er 40 km/t", "Største anbefalte fart er 40 km/t"],
+    "answer": 3,
+    "explanation": "Skiltet angir største tillatte hastighet på 40 km/t.",
+    "image": "images/del2/ques3.png"
+  },
+  {
+    "category": "Kjøre-/Hviletid",
+    "question": "Hvor lang tid kan en bussfører maksimalt kjøre før den pålagte 45-minutters pausen må tas?",
+    "options": ["5,5 timer", "4,5 timer", "5 timer", "4 timer"],
+    "answer": 1,
+    "explanation": "En bussfører kan kjøre maksimalt 4,5 timer før en pause på minst 45 minutter må tas.",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du skal kjøre denne bussen på følgende strekning i Nordland fylke E6 fra Mo i Rana, Saltfjellet, Rv. 812 til Misvær. Hva er største tillatte nyttelast?",
+    "options": ["7465 kg", "4065 kg", "5065 kg", "7565 kg"],
+    "answer": 0,
+    "explanation": "",
+    "image": "images/del2/q5.png"
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du skal kjøre denne leddbussen på en BK10-veg. Hver normal tillatt vekt for passasjer med bagasje er 75 kg. Hvor mange passasjerer kan du maksimalt ta med?",
+    "options": ["50 passasjerer", "79 passasjerer", "128 passasjerer", "132 passasjerer"],
+    "answer": 3,
+    "explanation": "Beregnet med 75 kg pr. passasjer for å holde seg innenfor tillatte vekter.",
+    "image": "images/del2/q6.png"
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du planlegger å kjøre denne bussen på strekningen i Hordaland fylke Rv. 13 Hogstadkrossen – Ims – Høle kirke x Kv. Hva er riktig?",
+    "options": ["Bussens tillatte totalvekt kan være 19 000 kg", "Bussen kan ha 51 passasjerer", "Når bussen er fullastet, kan hver passasjer med bagasje veie 100 kg", "Bussen er 12 meter lang og kan benyttes"],
+    "answer": 3,
+    "explanation": "Denne strekningen har vektbegrensning som medfører 19 000 kg totalvekt for buss.",
+    "image": "images/del2/q7.png"
+  },
+  {
+    "category": "Sikkerhet",
+    "question": "Du kjører på en landevei. Hvordan kan du lettest oppdage når det er en motorsyklist bak bussen?",
+    "options": ["Se i høyre speil i høyre sving og i venstre speil i venstre sving", "Se i høyre speil i venstre sving", "Se i høyre og venstre speil ved kjøring rett fram", "Se i venstre speil i høyre sving"],
+    "answer": 0,
+    "explanation": "I sving ser du best i speilet på innsiden av svingen (høyre i høyresving, venstre i venstresving).",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du skal kjøre denne leddbussen på en BK10-veg. Hver passasjer med bagasje veier 80 kg. Hvor mange passasjerer kan du maksimalt ta med?",
+    "options": ["133 passasjerer", "79 passasjerer", "128 passasjerer", "132 passasjerer"],
+    "answer": 2,
+    "explanation": "",
+    "image": "images/del2/q9.png"
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du skal kjøre denne bussen fra Vadsø til Alta i Finnmark fylke (E75–E6–Ev92–Rv93). Hva er største tillatte nyttelast på foraksel?",
+    "options": ["1135 kg", "2635 kg", "3135 kg", "4975 kg"],
+    "answer": 1,
+    "explanation": "",
+    "image": "images/del2/q10.png"
+  },
+  {
+    "category": "Skilt/Forbud",
+    "question": "Hvor er det ifølge trafikkskiltene forbudt for buss å kjøre?",
+    "options": ["A", "B", "C", "D"],
+    "answer": 2,
+    "explanation": "",
+    "image": "images/del2/q9.png"
+  },
+  {
+    "category": "Avstand",
+    "question": "Du kjører buss i tett trafikk. Hva er riktig om avstand til bilen foran?",
+    "options": ["Bilføreren foran deg avgjør hvor stor avstand skal være", "Kjøretøyenes hastighet har betydning for hvor stor avstand må være", "Avstand til bilen foran må ikke være mer enn 2 sekunder", "Avstand til bilen foran 1 sekund er uansett tilstrekkelig"],
+    "answer": 1,
+    "explanation": "Høyere fart krever større avstand – tilpass etter hastighet og forhold.",
+    "image": null
+  },
+  {
+    "category": "Avstand",
+    "question": "Du kjører buss og hastigheten din er 80 km/t. Hvor mange sekunder skal du være bak bilen foran?",
+    "options": ["10 sekunder (220 meter)", "5 sekunder (110 meter)", "3 sekunder (66 meter)", "1 sekund (22 meter)"],
+    "answer": 2,
+    "explanation": "Minst 3-sekundersregelen (ca. 66 m ved 80 km/t).",
+    "image": null
+  },
+
+
+
+  {
+    "category": "Vekt/Passasjer",
+    "question": "Du kjører leddbuss på en BK10-veg og hver passasjer veier 130 kg. Hvor mye kan passasjer med bagasje veie?",
+    "options": ["81 kg", "80 kg", "70 kg", "66 kg"],
+    "answer": 3,
+    "explanation": "Ved høy passasjervekt må beregnet standardvekt pr. passasjer nedjusteres til 66 kg for å holde seg innenfor vektrammer.",
+    "image": "images/del2/q14.png"
+  },
+
+
+  {
+    "category": "Tunnel",
+    "question": "Du skal videre til en tunnel med blinkende rødt lys. Hva er riktig?",
+    "options": ["Tunnelen er stengt en time for alle trafikanter", "Tunnelen er stengt for alle trafikanter", "Tunnelen er stengt for bil og lastebil", "Du må kjøre lav fart i tunnelen"],
+    "answer": 1,
+    "explanation": "Blinkende rødt betyr stengt tunnel for alle trafikanter.",
+    "image": "images/del2/q15.png"
+  },
+
+
+  {
+    "category": "Tunnel",
+    "question": "Du skal videre til en tunnel med blinkende rødt lys. Hva er riktig?",
+    "options": ["Kjøre videre fordi bom er åpen", "Tunnelen er stengt for bil og lastebil", "Det er ikke tillatt å kjøre videre til tunnelen", "Vent til kjørende fra tunnelen"],
+    "answer": 2,
+    "explanation": "Rødt blink = full stenging. Ikke kjør inn.",
+    "image": "images/del2/q16.png"
+  },
+
+
+
+  {
+    "category": "Brannsikkerhet",
+    "question": "Hvordan skal du bruke brannsikringsapparat montert i tunnelen?",
+    "options": ["Forsikringsselskapet til tunnelen varsles", "Forsikringsselskap varsles", "Brannslokningsapparat ","koblet til vegmeldings sentralen"],
+    "answer": 3,
+    "explanation": "Utløsing varsler veitrafikksentralen automatisk.",
+    "image":  "images/del2/q17.png"
+  },
+
+  
+  {
+    "category": "Brannsikkerhet",
+    "question": "Hvilke konsekvenser kan det få hvis bussfører snakker med passasjerer under kjøring?",
+    "options": ["Det får ingen konsekvenser så lenge føreren bare snakker med en person av gangen", "Førerens oppmerksomhet mot trafikken blir bedre
+", "Det har ingen betydning for kjøringen så lenge føreren ser på trafikken", "Det kan føre til at føreren blir distrahert "],
+    "answer": 3,
+    "explanation": "",
+    "image": null
+  },{
+     "category": "Brannsikkerhet",
+    "question": "Hvordan skal du bruke brannsikrings apparat montert i tunnelen?",
+    "options": ["Stat vegvesen varsles", "Forsikrings selskap til tunnelen varsles
+", "Utløse Brann alarmen", "Forsikrings selskap varsles "],
+    "answer": 2,
+    "explanation": "",
+    "image":    "images/del2/q19.png"
+  },
+  {
+    "category": "Sikt/Overgang lys",
+    "question": "Du kjører ut fra en tunnel og sola skinner ute. Hva er riktig?",
+    "options": ["Det blir vanskelig å se ute", "Du trenger 30 sekunder til å vende deg til lyset", "Når du kommer ut blir veien innsnevret", "Tunnellyset skal være på"],
+    "answer": 0,
+    "explanation": "Overgang fra mørkt til sterkt lys kan redusere sikten kortvarig – vær forberedt.",
+    "image":  "image":  "images/del2/q20.png"
+  },
+  {
+    "category": "Tunnel/Skilt",
+    "question": "Hva betyr SOS-skiltet i tunnelen?",
+    "options": ["Snuplass", "Parkeringsplass", "Buss holdeplass", "Havarilomme"],
+    "answer": 3,
+    "explanation": "SOS-skilt markerer havarilomme/nødplass.",
+    "image":  "images/del2/q21.png"
+  },
+
+
+
+
+  {
+    "category": "Tunnel/Brannskap",
+    "question": "Hva skjer når du tar ut brannslukningsapparat fra brannskapet i tunnel?",
+    "options": ["Brannslukningsapparat tømmes", "Veitrafikksentralen varsles automatisk", "Forsikringsselskapet ditt varsles", "Statens vegvesen varsles automatisk"],
+    "answer": 1,
+    "explanation": "Uttak utløser automatisk varsling til veitrafikksentralen.",
+    "image":   "images/del2/q22.png"
+  },
+  {
+    "category": "Ruteplanlegging",
+    "question": "God trafikkavvikling med rutebuss kan bety …",
+    "options": ["Kjøringen må planlegges i god tid før handling utføres", "Fartsgrensen holdes hele tiden", "Dørene åpnes rett før bussholdeplassen", "Føreren stanser på andre steder enn anviste holdeplasser"],
+    "answer": 0,
+    "explanation": "God planlegging gir jevn trafikkflyt og sikker av- og påstigning.",
+    "image": null
+  },
+
+
+  {
+    "category": "Teknikk/Motor",
+    "question": "Enkelte dieselmotorer krever bruk av tilsetningsstoffet AdBlue. Hvorfor tilsettes dette?",
+    "options": ["For å bedre motorens kaldstartegenskaper", "For å fjerne bly i dieselen og smøre motoren bedre", "For å erstatte katalysatorens oppgave", "For å gi renere avgass (NOx-reduksjon) og lavere forbruk"],
+    "answer": 3,
+    "explanation": "AdBlue (urea) reduserer NOx-utslipp i SCR-systemet og kan gi lavere forbruk.",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Denne bussen skal kjøre en BK10-veg. Hver passasjer med bagasje veier 85 kg. Hvor mange passasjerer kan du maksimalt ta med?",
+    "options": ["48 passasjerer", "50 passasjerer", "51 passasjerer", "52 passasjerer"],
+    "answer": 3,
+    "explanation": "",
+    "image":  "images/del2/q25.png"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "category": "Bremsesystem",
+    "question": "Hva skjer når bussens parkeringsbrems (fjærbrems) settes på?",
+    "options": ["Fjærbremsen spennes mekanisk ved hjelp av trykkluft", "Trykkluft slippes inn i fjærbremssylinderen", "Fjæren spennes automatisk ved hjelp av vakuum", "Trykkluft slippes ut av fjærbremssylinderen"],
+    "answer": 3,
+    "explanation": "Parkbremsen virker ved at trykkluft slippes ut og fjæren legger på bremsevirkning.",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du kjører buss fra Vest-Agder (Kristiansand) til Telemark på veg nr. 9. Se på kartet – hvor mye last er maksimalt tillatt?",
+    "options": ["8 tonn", "9 tonn", "11,5 tonn", "11,6 tonn"],
+    "answer": 0,
+    "explanation": "",
+    "image":"images/del2/q27.png"
+  },
+
+
+
+
+
+
+
+
+
+  {
+    "category": "Kjøremåte",
+    "question": "Hva er hensiktsmessig kjøring i denne situasjonen?",
+    "options": ["Det er ingen kjøremåte som er mer hensiktsmessig enn andre i en slik situasjon", "Senke farten i tide og unngå stans", "Kjøre med jevn fart fram mot krysset for å stanse", "Øke farten fram mot krysset"],
+    "answer": 1,
+    "explanation": "Tilpass farten i tide for å unngå unødvendig stopp.",
+    "image":  "images/del2/q28.png"
+  },
+
+
+  {
+    "category": "Rutevalg/Avkjøring",
+    "question": "Du kjører 80 km/t fritt, og kjørte forbi avkjøringen du skulle tatt… Hva gjør du?",
+    "options": ["Rygge uten å hindre trafikken bak", "Ta en U-sving uten å hindre trafikk", "Spørre hjelp fra vegvesen", "Kjør videre og ta neste avkjøring for å finne riktig avkjøring"],
+    "answer": 3,
+    "explanation": "Aldri rygg eller U-sving på vei – ta neste avkjøring.",
+    "image": null
+  },
+
+
+
+  {
+    "category": "Fysikk/Bremselengde",
+    "question": "Hvor mange ganger øker bremselengden når farten dobles?",
+    "options": ["2 ganger", "3 ganger", "4 ganger", "5 ganger"],
+    "answer": 2,
+    "explanation": "Bremselengden øker omtrent med kvadratet av farten – dobling gir ca. fire ganger.",
+     "image":null
+  },
+
+
+
+  {
+    "category": "Fysikk/Bevegelsesenergi",
+    "question": "Hvor mange ganger øker bevegelsesenergien når vekten dobles og hastigheten er den samme?",
+    "options": ["2", "3", "4", "6"],
+    "answer": 0,
+    "explanation": "Bevegelsesenergi E = 1/2·m·v^2 – dobbel masse gir dobbel energi ved samme fart.",
+    "image": null
+  },
+
+
+
+
+  {
+    "category": "Motor/Drift",
+    "question": "Du har kjørt en eldre buss med stor motorbelastning opp en bratt bakke og stanser på en rasteplass. Hvorfor er det viktig at motoren går noen minutter på tomgang før du stopper den?",
+    "options": ["For at motoroljen ikke skal koke", "For å holde radiatoren ren og kald", "For å hjelpe motoren", "For å redusere drivstoffbruk"],
+    "answer": 2,
+    "explanation": ".",
+    "image": null
+  },
+  {
+    "category": "Tunnel/Nød",
+    "question": "Du kjører i en tunnel og det har skjedd en ulykke. Hvordan skal du ringe?",
+    "options": ["Bruk din egen mobil", "Bruk nødtelefonen i tunnelen", "Spør en person om å ringe", "Nødaggregat"],
+    "answer": 1,
+    "explanation": "Bruk nødtelefon – den kobler deg direkte til veitrafikksentralen og angir posisjon.",
+    "image": null
+  },
+
+
+
+  
+  {
+    "category": "Fysikk/Bevegelsesenergi",
+    "question": "Hva er riktig?",
+    "options": ["Når farten dobles, øker bevegelsesenergien fire ganger", "Når farten dobles, øker bevegelsesenergien fem ganger", "Når farten dobles, øker bevegelsesenergien tre ganger", "Når farten dobles, øker bevegelsesenergien to ganger"],
+    "answer": 0,
+    "explanation": "Bevegelsesenergi er proporsjonal med v^2 – dobling av fart gir firedobling av energi.",
+    "image": null
+  },
+  {
+    "category": "EU-kontroll",
+    "question": "En buss har registreringsnummer GA 10017. Når skal bussen senest fremstilles til periodisk kontroll (EU-kontroll)?",
+    "options": ["Juli", "August", "November", "September"],
+    "answer": 2,
+    "explanation": "Siste siffer 7 ⇒ fristmåned november.",
+    "image": null
+  },
+  {
+    "category": "Tunnel/Brannskap",
+    "question": "Hva får du hvis du åpner dette brannskapet som finnes i tunnel?",
+    "options": ["Førstehjelpsutstyr", "Brannsikringsapparat", "Brannslukningsapparat"],
+    "answer": 2,
+    "explanation": "Brannskap i tunnel inneholder brannslukningsapparat.",
+    "image": "images/del2/36.png"
+  },
+
+
+
+  {
+    "category": "Dekk/Vinter",
+    "question": "Dekk som er beregnet for bruk om vinteren er merket med bokstavene …",
+    "options": ["V + U", "K + L", "H + R", "M + S"],
+    "answer": 3,
+    "explanation": "M+S = Mud & Snow (vinterdekkmerking).",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du kjører denne bussen (BK8) i Oppland på Rv 4 i Biri/Akershus med 75 passasjerer. Hvor mye passasjer med bagasje kan du maksimalt ta med (total passasjerlast)?",
+    "options": ["7100 kg", "3085 kg", "3250 kg", "3000 kg"],
+    "answer": 2,
+    "explanation": "",
+    "image": "images/del2/q38.png"
+  },
+  {
+    "category": "Lading/Elektrisk",
+    "question": "Du kjører en buss og ser at ladeindikator lyser/blinker. Hva kan være årsaken?",
+    "options": ["Drivreima til dynamoen ødelagt", "Elektrisk sikring ødelagt", "En hovedlyspære ødelagt", "Mekanisk brudd på ladning"],
+    "answer": 0,
+    "explanation": "Typisk årsak er drivreim/dynamo – sjekk reimspenning eller dynamo/ladekrets.",
+    "image": null
+  },
+  {
+    "category": "(Data/BK)",
+    "question": "Du skal kjøre denne bussen på følgende strekning i Finnmark fylke Rv. 94 Skaidi x E6 – Hammerfest kai. Hva blir største tillatte nyttelast på foraksel?",
+    "options": ["1940 kg", "2015 kg", "4840 kg", "7100 kg"],
+    "answer": 0,
+    "explanation": "Den største tillatte nyttelasten på forakselen er 1 940 kg (7100 kg total foraksel minus egenvekt på akselen).",
+    "image": "images/uten_nav_questions/uten_nav_image_ques_28.png"
+  }
+]
