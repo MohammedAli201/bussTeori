@@ -89,7 +89,7 @@
     <option value="del2">Del 2</option>
     <option value="del3">Del 3</option>
      <option value="del4">Del 4</option>
-     <!-- <option value="del5">Del 5</option> -->
+     <option value="del5">Del 5</option>
     <option value="all" selected>Alle spørsmål</option>
   </select>
 </div>
@@ -2407,492 +2407,781 @@ const QUESTIONS_DEL4 = [
     "image": null
   }
 ];
+// const QUESTIONS_DEL5 = [
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva er riktig om gyldighet for førerett i klasse D?",
+//     "options": [
+//       "Gjelder også for lett motorsykkel",
+//       "Gjelder også motorvogn i klasse C",
+//       "Gjelder også for trekking av tilhenger med tillatt totalvekt over 750 kg",
+//       "Gjelder også for leddbuss"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q1.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvilken forsikring er påbudt for buss i persontransport?",
+//     "options": [
+//       "Trafikkforsikring (ansvarsforsikring)",
+//       "Delkasko",
+//       "Kaskoforsikring",
+//       "Tabbeforsikring"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q2.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva er riktig om pliktmessig avhold?",
+//     "options": [
+//       "Gjelder for alle yrkessjåfører",
+//       "Gjelder bare de som utfører persontransport",
+//       "En bussjåfør kan ha inntil 0,5 promille",
+//       "Gjelder kun for sjåfør av buss med over 16 sitteplasser"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q3.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvilken forsikring må busselskapet ha for å få dekket skade på egne kjøretøy?",
+//     "options": [
+//       "Trafikkforsikring (ansvarsforsikring)",
+//       "Kaskoforsikring",
+//       "Løsørforsikring",
+//       "Tabbeforsikring"
+//     ],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q4.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvor ofte skal en buss fremstilles til periodisk kontroll (EU-kontroll)?",
+//     "options": ["Hvert halvår", "Hvert år", "Hvert annet år", "Hvert fjerde år"],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q5.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvilken dokument må føreren ha med seg i tillegg til førerkort og vognkort når det kjøres turbuss?",
+//     "options": ["Kjøreseddel", "Sonetaksttabel", "Ruteplan", "Vegliste"],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q6.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "En fullastet buss vil få...",
+//     "options": [
+//       "Kortere bremselengde enn en personbil i samme fart",
+//       "Lengre bremselengde enn en personbil i samme fart",
+//       "Like lang bremselengde som en minibuss i samme fart",
+//       "Like lang bremselengde som en minibuss uansett fart"
+//     ],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q7.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvordan skal bussføreren forholde seg til syklister langs vegen?",
+//     "options": [
+//       "Holde avstand på omtrent 1 meter",
+//       "Kjøre raskt forbi for å redusere risiko",
+//       "Det må varsles med lydsignal for å bedre bussens fremkommelighet",
+//       "Tilpasse fart og avstand"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q8.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "I sommerhalvåret skal dekk på buss ha mønsterdybde på minst...",
+//     "options": ["0.6 mm", "1.6 mm", "2.6 mm", "3.0 mm"],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q9.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva kan være årsaken til at røyken fra en dieselmotor er svart?",
+//     "options": [
+//       "Lekkasje i eksosanlegget",
+//       "Luft kan ha kommet inn i drivstoffanlegget",
+//       "Kjølevann kan ha kommet inn i sylinderne",
+//       "Luftfilteret kan være tett"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q10.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvordan kan du kontrollere frostvernet (lufttørken) i et bremseanlegg?",
+//     "options": [
+//       "Pumpe bremsepedalen og kontrollere trykkfall",
+//       "Kontrollere kompressorens ladekapasitet",
+//       "Kontrollere at varsellampe for lav frostvern virker",
+//       "Tappe trykklufttanken for å se at det ikke kommer vann ut"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q11.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Etter hjulskifte skal hjulmutterne etter ca. 50 kilometers kjøring...",
+//     "options": [
+//       "Ettertrekkes med riktig moment",
+//       "Ettertrekkes med så stor kraft som mulig",
+//       "Låse seg selv",
+//       "Kontrolleres med autorisert verksted"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q12.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss i januar måned. Hvor mange kjettinger skal minst være med i bussen?",
+//     "options": ["1", "2", "3", "4"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q13.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Når skal denne GT13287 bussen EU-kontrolleres?",
+//     "options": ["Januar", "August", "November", "Mai"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q14.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Piggdekk på buss...",
+//     "options": [
+//       "Er bare tillatt å bruke på innerhjulene i tvillingmontering",
+//       "Må brukes på alle hjul",
+//       "Kan brukes på forhjulene selv om bakhjulene ikke har piggdekk",
+//       "Gir fritak for å medbringe kjettinger"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q15.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Førstehjelpsskrin i buss skal være plassert...",
+//     "options": [
+//       "Synlig og lett tilgjengelig",
+//       "I bagasjerommet",
+//       "Ved hver seterad",
+//       "Ved nødutgangene"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q16.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvordan kontrollerer du om servostyringen virker?",
+//     "options": [
+//       "Ved å se at det ikke er lekkasje ved påfyllingen",
+//       "Ved å kjenne at rattet blir lettere å dreie når jeg stopper motoren",
+//       "Ved å kjenne at rattet blir lettere å dreie når jeg starter motoren",
+//       "Ved å se at det bobler i servobeholderen når det dreies på rattet"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q17.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Sikringene i det elektriske anlegg skal sikre...",
+//     "options": [
+//       "At brann ikke oppstår",
+//       "Batteriene mot overladning",
+//       "Lyspærene mot for høy spenning",
+//       "At det er strøm på batteriene"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q18.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss og må legge på kjetting. Du må bruke refleksvest for å være synlig. Hvordan skal denne refleksvesten oppbevares?",
+//     "options": ["I lasterommet", "Sammen med kjettingene", "Lett tilgjengelig for fører", "I bussens sikringsskap"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q19.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kan forhindre at bremsebelegget glaseres ved å...",
+//     "options": [
+//       "Bruke motorbremsen sammen med fotbremsen",
+//       "Bruke bremsene svakt og minst mulig",
+//       "La bremsene bli skikkelig varme av og til",
+//       "Bremse kraftig av og til"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q20.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvor lang tid kan en bussfører maksimalt kjøre før den pålagte 45-minutters pausen må tas?",
+//     "options": ["5.5 timer", "5 timer", "4.5 timer", "4 timer"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q21.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du skal kjøre buss i rute. Hva må du ta med deg?",
+//     "options": ["Reservehjul", "Servicebok", "Instruksjonsbok", "Kjøreseddel"],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q22.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du skal kjøre buss med digital fartsskriver. Hva må du ha med deg?",
+//     "options": ["Bedriftskort", "Sjåførkort", "Reserve sjåførkort", "Bankkort"],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q23.png"
+//   },
+//     {
+//     "category": "(Klasse D)",
+//     "question": "Hva skal den digitale fartsskriveren blant annet registrere?",
+//     "options": ["Antall passasjerer", "Akselerasjon/retardasjon", "Ferie", "Hviletid"],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q24.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvilken påstand om overlast er riktig?",
+//     "options": [
+//       "Buss er fritatt for overlastgebyr",
+//       "Det brukes lavere gebyrsatser enn for lastbiler",
+//       "Det kan kreves at passasjerer må forlate bussen",
+//       "Frimargin er 1500 kg på bakaksel for buss som har luftfjæring"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q25.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva skal du gjøre når fartsskriveren slutter å fungere?",
+//     "options": [
+//       "Oppsøke et godkjent verksted og få den reparert",
+//       "Oppsøke en trafikkstasjon og få den reparert",
+//       "Oppsøke en politistasjon og få en dispensasjon for videre kjøring",
+//       "Oppsøke en tollstasjon og få en dispensasjon for videre kjøring"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q26.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvor mange passasjerer er bussen maksimalt godkjent for?",
+//     "options": ["59 passasjerer", "97 passasjerer", "145 passasjerer", "147 passasjerer"],
+//     "answer": null,
+//     "explanation": "Avhenger av kjøretøyet i oppgaven/bilde.",
+//     "image": "images/d5/q27.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du skal kjøre denne bussen på følgende strekning i Finnmark fylke (Rv. 94 Skaidi x E6 – Hammerfest kai). Hva blir største tillatte nyttelast på foraksel?",
+//     "options": ["1940 kg", "2015 kg", "4840 kg", "7100 kg"],
+//     "answer": null,
+//     "explanation": "Avhenger av BK/strekning og kjøretøydata.",
+//     "image": "images/d5/q28.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du skal kjøre følgende strekning i Rogaland fylke: Rv. 13 Hogstadkrossen – Ims – Høle Krk X Kv. Hva er største tillatte boggilast på buss med luftfjæring?",
+//     "options": ["11 500 kg", "12 000 kg", "14 000 kg", "16 000 kg"],
+//     "answer": null,
+//     "explanation": "Avhenger av BK/strekning (se vegliste).",
+//     "image": "images/d5/q29.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du skal kjøre denne bussen til Hordaland fylke på E134 fra Haukeli X E134 – Midtlæger X E134. Hva er riktig?",
+//     "options": [
+//       "Største tillatte totalvekt på strekningen er 19 000 kg",
+//       "Største tillatte kjøretøylengde for buss på strekningen er 12,40 meter",
+//       "Når bussen er fullastet, kan hver passasjer med bagasje veie 100 kg",
+//       "Bussen kan ha 51 passasjerer"
+//     ],
+//     "answer": null,
+//     "explanation": "Krever kontroll mot vegliste/oppgitt bussdata.",
+//     "image": "images/d5/q30.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss med luftfjæring på en Bk 10 veg. Hva er største tillatte boggilast når akselavstanden i boggien er 136 cm?",
+//     "options": ["12 tonn", "14 tonn", "16 tonn", "18 tonn"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q31.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss med luftfjæring på en Bk 10 veg. Hva er største tillatte boggilast når akselavstanden i boggien er 139 cm?",
+//     "options": ["16 tonn", "18 tonn", "19 tonn", "20 tonn"],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q32.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva betyr skiltet?",
+//     "options": ["Sidevind", "Bru", "Tunnel", "Flyplass"],
+//     "answer": null,
+//     "explanation": "Avhenger av hvilket skilt som vises i oppgaven.",
+//     "image": "images/d5/q33.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss med høyde 3,19 meter. Hvor kan du kjøre?",
+//     "options": ["Mot E18", "Mot Gjøvik", "Mot E6", "Mot sentrum"],
+//     "answer": null,
+//     "explanation": "Avhenger av skiltet/klaring i bildet.",
+//     "image": "images/d5/q34.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hva betyr skiltet?",
+//     "options": [
+//       "Parkeringsplass for lastebiler",
+//       "Parkeringsplass tillatt for alle kjøretøy",
+//       "Omkjøringsrute for store kjøretøy",
+//       "Vegvisning til nærmeste terminal"
+//     ],
+//     "answer": null,
+//     "explanation": "Avhenger av hvilket skilt som vises i oppgaven.",
+//     "image": "images/d5/q35.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du som kjører buss kan bruke feltet helt til høyre. Hvilket andre kjøretøy kan bruke det?",
+//     "options": ["Taxi med inntil 5 sitteplasser", "Sykkel", "Lastebil", "Traktor"],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q36.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Når kan langt overheng på buss skape problemer?",
+//     "options": ["Ved kjøring på rett veg", "Ved rygging rett bakover", "Ved svinging i trange kryss", "Ved skift av kjørefelt"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q37.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvilken informasjon gir vegoppmerkingen deg når du kjører buss?",
+//     "options": [
+//       "Den viser at det kun er ett kjørefelt",
+//       "Den varsler om svak vegskulder",
+//       "Det kan bli liten plass når du møter andre kjøretøy",
+//       "Den viser at du snart kommer til tettbygde strøk"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q38.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss i kollektivfelt og kommer til et signalregulert kryss. Den hvite pilen betyr det samme som...",
+//     "options": ["Rødt og gult på", "Grønt på", "Gult på", "Rødt på"],
+//     "answer": 1,
+//     "explanation": "",
+//     "image": "images/d5/q39.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører buss i kollektivfeltet som er lengst til høyre. Hva betyr lyskombinasjonen?",
+//     "options": [
+//       "Kan svinge til høyre fordi det er hvit «S»",
+//       "Kan svinge til høyre fordi det er grønt lys",
+//       "Kan kjøre rett frem fordi det er grønt lys",
+//       "Kan ikke kjøre fordi det er hvit «S»"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q40.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "God framkommelighet med buss krever...",
+//     "options": [
+//       "Godt samarbeid med andre trafikanter",
+//       "Høy gjennomsnittsfart",
+//       "Liten avstand til forankjørende",
+//       "At vegens skuldrer benyttes"
+//     ],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q41.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvordan skal en bussfører forholde seg ved forbikjøring av syklister på landevegen?",
+//     "options": [
+//       "Holde en meters avstand",
+//       "Holde bussen innenfor eget kjørefelt",
+//       "Avpasse farten og holde god avstand",
+//       "Avpasse farten etter fartsgrensen på stedet"
+//     ],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q42.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "I en gitt hastighet blir bremselengden ca. 25 meter. Hvor lang blir bremselengden når hastigheten dobles?",
+//     "options": ["Ca. 50 meter", "Ca. 75 meter", "Ca. 100 meter", "Ca. 125 meter"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q43.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Du kjører i mørket og har møtende trafikk. Hvilket lys skal være tent når du står i ro på en bussholdeplass?",
+//     "options": ["Tåkelys", "Fjernlys", "Parkeringslys", "Nærlys"],
+//     "answer": 2,
+//     "explanation": "",
+//     "image": "images/d5/q44.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvem er ansvarlig for at vikepliktbestemmelsene ved rygging overholdes?",
+//     "options": ["Bussføreren", "Busselskapet", "Passasjeren", "Hjelpemannen"],
+//     "answer": 0,
+//     "explanation": "",
+//     "image": "images/d5/q45.png"
+//   },
+//   {
+//     "category": "(Klasse D)",
+//     "question": "Hvordan kan miljøet spares ved kjøring med buss?",
+//     "options": [
+//       "Unngå bruk av hjelpesbremser",
+//       "Kjør på høyt turtall",
+//       "Tidlig fartsreduksjon for å få flere girskifter",
+//       "Færrest mulig girskifter"
+//     ],
+//     "answer": 3,
+//     "explanation": "",
+//     "image": "images/d5/q46.png"
+//   }
+// ];
+
 const QUESTIONS_DEL5 = [
   {
-    "category": "(Klasse D)",
-    "question": "Hva er riktig om gyldighet for førerett i klasse D?",
-    "options": [
-      "Gjelder også for lett motorsykkel",
-      "Gjelder også motorvogn i klasse C",
-      "Gjelder også for trekking av tilhenger med tillatt totalvekt over 750 kg",
-      "Gjelder også for leddbuss"
-    ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q1.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvilken forsikring er påbudt for buss i persontransport?",
-    "options": [
-      "Trafikkforsikring (ansvarsforsikring)",
-      "Delkasko",
-      "Kaskoforsikring",
-      "Tabbeforsikring"
-    ],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q2.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hva er riktig om pliktmessig avhold?",
-    "options": [
-      "Gjelder for alle yrkessjåfører",
-      "Gjelder bare de som utfører persontransport",
-      "En bussjåfør kan ha inntil 0,5 promille",
-      "Gjelder kun for sjåfør av buss med over 16 sitteplasser"
-    ],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q3.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvilken forsikring må busselskapet ha for å få dekket skade på egne kjøretøy?",
-    "options": [
-      "Trafikkforsikring (ansvarsforsikring)",
-      "Kaskoforsikring",
-      "Løsørforsikring",
-      "Tabbeforsikring"
-    ],
+    "category": "Trafikkregler",
+    "question": "Hva er fartsgrensen for buss på landevei hvis annet ikke er skiltet?",
+    "options": ["70 km/t", "80 km/t", "90 km/t", "100 km/t"],
     "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q4.png"
+    "explanation": "Høyeste tillatte hastighet for buss uten tilhenger på landevei er 80 km/t."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvor ofte skal en buss fremstilles til periodisk kontroll (EU-kontroll)?",
-    "options": ["Hvert halvår", "Hvert år", "Hvert annet år", "Hvert fjerde år"],
-    "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q5.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvilken dokument må føreren ha med seg i tillegg til førerkort og vognkort når det kjøres turbuss?",
-    "options": ["Kjøreseddel", "Sonetaksttabel", "Ruteplan", "Vegliste"],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q6.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "En fullastet buss vil få...",
+    "category": "Trafikkregler",
+    "question": "Når kan du bruke kollektivfeltet med buss?",
     "options": [
-      "Kortere bremselengde enn en personbil i samme fart",
-      "Lengre bremselengde enn en personbil i samme fart",
-      "Like lang bremselengde som en minibuss i samme fart",
-      "Like lang bremselengde som en minibuss uansett fart"
-    ],
-    "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q7.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvordan skal bussføreren forholde seg til syklister langs vegen?",
-    "options": [
-      "Holde avstand på omtrent 1 meter",
-      "Kjøre raskt forbi for å redusere risiko",
-      "Det må varsles med lydsignal for å bedre bussens fremkommelighet",
-      "Tilpasse fart og avstand"
-    ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q8.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "I sommerhalvåret skal dekk på buss ha mønsterdybde på minst...",
-    "options": ["0.6 mm", "1.6 mm", "2.6 mm", "3.0 mm"],
-    "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q9.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hva kan være årsaken til at røyken fra en dieselmotor er svart?",
-    "options": [
-      "Lekkasje i eksosanlegget",
-      "Luft kan ha kommet inn i drivstoffanlegget",
-      "Kjølevann kan ha kommet inn i sylinderne",
-      "Luftfilteret kan være tett"
-    ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q10.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvordan kan du kontrollere frostvernet (lufttørken) i et bremseanlegg?",
-    "options": [
-      "Pumpe bremsepedalen og kontrollere trykkfall",
-      "Kontrollere kompressorens ladekapasitet",
-      "Kontrollere at varsellampe for lav frostvern virker",
-      "Tappe trykklufttanken for å se at det ikke kommer vann ut"
-    ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q11.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Etter hjulskifte skal hjulmutterne etter ca. 50 kilometers kjøring...",
-    "options": [
-      "Ettertrekkes med riktig moment",
-      "Ettertrekkes med så stor kraft som mulig",
-      "Låse seg selv",
-      "Kontrolleres med autorisert verksted"
-    ],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q12.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss i januar måned. Hvor mange kjettinger skal minst være med i bussen?",
-    "options": ["1", "2", "3", "4"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q13.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Når skal denne GT13287 bussen EU-kontrolleres?",
-    "options": ["Januar", "August", "November", "Mai"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q14.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Piggdekk på buss...",
-    "options": [
-      "Er bare tillatt å bruke på innerhjulene i tvillingmontering",
-      "Må brukes på alle hjul",
-      "Kan brukes på forhjulene selv om bakhjulene ikke har piggdekk",
-      "Gir fritak for å medbringe kjettinger"
+      "Når du kjører buss uansett formål",
+      "Kun når du frakter passasjerer",
+      "Kun når du kjører rutebuss",
+      "Når du vil unngå kø"
     ],
     "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q15.png"
+    "explanation": "Bare rutebuss kan bruke kollektivfelt med mindre underskiltet sier 'Buss'."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Førstehjelpsskrin i buss skal være plassert...",
+    "category": "Trafikkregler",
+    "question": "Du kjører buss i kollektivfelt og får hvitt lyssignal i kryss. Hva betyr det?",
+    "options": ["Rødt lys", "Gult lys", "Grønt lys", "Blinklys påbudt"],
+    "answer": 2,
+    "explanation": "Hvitt signal i kollektivfelt betyr det samme som grønt lys for buss og drosje."
+  },
+  {
+    "category": "Trafikkregler",
+    "question": "Hva er høyeste aktuelle boggilast for buss med luftfjæring?",
+    "options": ["6 tonn", "9 tonn", "11 tonn", "12 tonn"],
+    "answer": 1,
+    "explanation": "Riktig boggilast for buss med luftfjæring er 9 tonn."
+  },
+  {
+    "category": "Trafikkregler",
+    "question": "Når har buss vikeplikt ved utekjøring fra holdeplass?",
     "options": [
-      "Synlig og lett tilgjengelig",
+      "Alltid vikeplikt for all trafikk",
+      "Har forkjørsrett på riksveier",
+      "Har prioritet i tettbygd strøk",
+      "Bare vikeplikt hvis det er skiltet"
+    ],
+    "answer": 0,
+    "explanation": "Bussfører har alltid vikeplikt når bussen kjører ut fra holdeplass."
+  },
+  {
+    "category": "Trafikkregler",
+    "question": "Hva betyr et blått skilt med tallet 40?",
+    "options": [
+      "Påbudt fart 40 km/t",
+      "Minste anbefalte fart 40 km/t",
+      "Største anbefalte fart 40 km/t",
+      "Største tillatte fart 40 km/t"
+    ],
+    "answer": 2,
+    "explanation": "Blått skilt med tall angir anbefalt høyeste fart."
+  },
+  {
+    "category": "Kjøretøy og teknikk",
+    "question": "Hva skal du kontrollere ved luftbremsesystemet før kjøring?",
+    "options": [
+      "At lufttrykket bygges raskt opp og varsellampe slukker",
+      "Kun at bremsevæske er full",
+      "At parkeringsbrems virker kun bak",
+      "At pedalen kjennes hard"
+    ],
+    "answer": 0,
+    "explanation": "Lufttrykket må bygges opp til riktig nivå før kjøring."
+  },
+  {
+    "category": "Kjøretøy og teknikk",
+    "question": "Når skal kjetting brukes på buss?",
+    "options": [
+      "Ved glatt føre og dårlig veggrep",
+      "Bare når du kjører i by",
+      "Kun når snødybde er over 20 cm",
+      "Ved lav temperatur"
+    ],
+    "answer": 0,
+    "explanation": "Kjetting brukes på drivhjul når veigrepet er dårlig."
+  },
+  {
+    "category": "Kjøretøy og teknikk",
+    "question": "Hva kan føre til dårlig brems på én side?",
+    "options": [
+      "Ujevn dekkslitasje",
+      "Forskjellig lufttrykk i dekkene",
+      "Feil i bremsemekanismen",
+      "For høy motortemperatur"
+    ],
+    "answer": 2,
+    "explanation": "Ulik bremseeffekt skyldes vanligvis feil i bremsemekanismen."
+  },
+  {
+    "category": "Kjøretøy og teknikk",
+    "question": "Hvor ofte skal bussens dekk ha mønsterdybde på minst 5 mm?",
+    "options": [
+      "Hele året",
+      "Kun om vinteren (1. nov–E. påsken)",
+      "Kun ved snøføre",
+      "Bare ved rutekjøring"
+    ],
+    "answer": 1,
+    "explanation": "På vinterføre kreves minimum 5 mm mønsterdybde."
+  },
+  {
+    "category": "Sikkerhet og ansvar",
+    "question": "Hva er førerens ansvar for bruk av bilbelte i buss?",
+    "options": [
+      "Kontrollere fysisk at alle har tatt på belte",
+      "Informere passasjerene om plikten",
+      "Bare ansvar for barn under 15 år",
+      "Ingen ansvar"
+    ],
+    "answer": 1,
+    "explanation": "Føreren skal informere alle passasjerer om belteplikt."
+  },
+  {
+    "category": "Sikkerhet og ansvar",
+    "question": "Hva gjør du hvis det begynner å ryke fra motorrommet under kjøring?",
+    "options": [
+      "Kjører til verksted",
+      "Stanser straks og evakuerer passasjerene",
+      "Fortsetter til røyken stopper",
+      "Slår av varmeapparatet"
+    ],
+    "answer": 1,
+    "explanation": "Stans straks, slå av motoren og evakuer trygt."
+  },
+  {
+    "category": "Sikkerhet og ansvar",
+    "question": "Hvor skal nødhammerne være plassert i bussen?",
+    "options": [
+      "Ved vinduer som kan brukes som nødutganger",
+      "Kun foran",
       "I bagasjerommet",
-      "Ved hver seterad",
-      "Ved nødutgangene"
+      "Ved sjåførplassen"
     ],
     "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q16.png"
+    "explanation": "De skal være synlige og lett tilgjengelige ved nødutganger."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvordan kontrollerer du om servostyringen virker?",
+    "category": "Sikkerhet og ansvar",
+    "question": "Hva er viktig før du forlater bussen etter en ulykke?",
     "options": [
-      "Ved å se at det ikke er lekkasje ved påfyllingen",
-      "Ved å kjenne at rattet blir lettere å dreie når jeg stopper motoren",
-      "Ved å kjenne at rattet blir lettere å dreie når jeg starter motoren",
-      "Ved å se at det bobler i servobeholderen når det dreies på rattet"
+      "At motoren går for å holde varme",
+      "At nødbrems er på og strømmen slått av",
+      "At dørene er åpne",
+      "At du samler eiendeler"
     ],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q17.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Sikringene i det elektriske anlegg skal sikre...",
-    "options": [
-      "At brann ikke oppstår",
-      "Batteriene mot overladning",
-      "Lyspærene mot for høy spenning",
-      "At det er strøm på batteriene"
-    ],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q18.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss og må legge på kjetting. Du må bruke refleksvest for å være synlig. Hvordan skal denne refleksvesten oppbevares?",
-    "options": ["I lasterommet", "Sammen med kjettingene", "Lett tilgjengelig for fører", "I bussens sikringsskap"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q19.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kan forhindre at bremsebelegget glaseres ved å...",
-    "options": [
-      "Bruke motorbremsen sammen med fotbremsen",
-      "Bruke bremsene svakt og minst mulig",
-      "La bremsene bli skikkelig varme av og til",
-      "Bremse kraftig av og til"
-    ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q20.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvor lang tid kan en bussfører maksimalt kjøre før den pålagte 45-minutters pausen må tas?",
-    "options": ["5.5 timer", "5 timer", "4.5 timer", "4 timer"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q21.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du skal kjøre buss i rute. Hva må du ta med deg?",
-    "options": ["Reservehjul", "Servicebok", "Instruksjonsbok", "Kjøreseddel"],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q22.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du skal kjøre buss med digital fartsskriver. Hva må du ha med deg?",
-    "options": ["Bedriftskort", "Sjåførkort", "Reserve sjåførkort", "Bankkort"],
     "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q23.png"
-  },
-    {
-    "category": "(Klasse D)",
-    "question": "Hva skal den digitale fartsskriveren blant annet registrere?",
-    "options": ["Antall passasjerer", "Akselerasjon/retardasjon", "Ferie", "Hviletid"],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q24.png"
+    "explanation": "Slå av strømmen og trekk parkeringsbrems for å hindre brann."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvilken påstand om overlast er riktig?",
-    "options": [
-      "Buss er fritatt for overlastgebyr",
-      "Det brukes lavere gebyrsatser enn for lastbiler",
-      "Det kan kreves at passasjerer må forlate bussen",
-      "Frimargin er 1500 kg på bakaksel for buss som har luftfjæring"
-    ],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q25.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hva skal du gjøre når fartsskriveren slutter å fungere?",
-    "options": [
-      "Oppsøke et godkjent verksted og få den reparert",
-      "Oppsøke en trafikkstasjon og få den reparert",
-      "Oppsøke en politistasjon og få en dispensasjon for videre kjøring",
-      "Oppsøke en tollstasjon og få en dispensasjon for videre kjøring"
-    ],
+    "category": "Yrkestransport og lover",
+    "question": "Hva må du ha for å drive persontransport mot betaling?",
+    "options": ["Transportløyve", "Kun førerkort D", "Skilt fra kommunen", "Kjøreseddel for taxi"],
     "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q26.png"
+    "explanation": "All yrkesmessig transport krever transportløyve."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvor mange passasjerer er bussen maksimalt godkjent for?",
-    "options": ["59 passasjerer", "97 passasjerer", "145 passasjerer", "147 passasjerer"],
-    "answer": null,
-    "explanation": "Avhenger av kjøretøyet i oppgaven/bilde.",
-    "image": "images/d5/q27.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du skal kjøre denne bussen på følgende strekning i Finnmark fylke (Rv. 94 Skaidi x E6 – Hammerfest kai). Hva blir største tillatte nyttelast på foraksel?",
-    "options": ["1940 kg", "2015 kg", "4840 kg", "7100 kg"],
-    "answer": null,
-    "explanation": "Avhenger av BK/strekning og kjøretøydata.",
-    "image": "images/d5/q28.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du skal kjøre følgende strekning i Rogaland fylke: Rv. 13 Hogstadkrossen – Ims – Høle Krk X Kv. Hva er største tillatte boggilast på buss med luftfjæring?",
-    "options": ["11 500 kg", "12 000 kg", "14 000 kg", "16 000 kg"],
-    "answer": null,
-    "explanation": "Avhenger av BK/strekning (se vegliste).",
-    "image": "images/d5/q29.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du skal kjøre denne bussen til Hordaland fylke på E134 fra Haukeli X E134 – Midtlæger X E134. Hva er riktig?",
-    "options": [
-      "Største tillatte totalvekt på strekningen er 19 000 kg",
-      "Største tillatte kjøretøylengde for buss på strekningen er 12,40 meter",
-      "Når bussen er fullastet, kan hver passasjer med bagasje veie 100 kg",
-      "Bussen kan ha 51 passasjerer"
-    ],
-    "answer": null,
-    "explanation": "Krever kontroll mot vegliste/oppgitt bussdata.",
-    "image": "images/d5/q30.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss med luftfjæring på en Bk 10 veg. Hva er største tillatte boggilast når akselavstanden i boggien er 136 cm?",
-    "options": ["12 tonn", "14 tonn", "16 tonn", "18 tonn"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q31.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss med luftfjæring på en Bk 10 veg. Hva er største tillatte boggilast når akselavstanden i boggien er 139 cm?",
-    "options": ["16 tonn", "18 tonn", "19 tonn", "20 tonn"],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q32.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hva betyr skiltet?",
-    "options": ["Sidevind", "Bru", "Tunnel", "Flyplass"],
-    "answer": null,
-    "explanation": "Avhenger av hvilket skilt som vises i oppgaven.",
-    "image": "images/d5/q33.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss med høyde 3,19 meter. Hvor kan du kjøre?",
-    "options": ["Mot E18", "Mot Gjøvik", "Mot E6", "Mot sentrum"],
-    "answer": null,
-    "explanation": "Avhenger av skiltet/klaring i bildet.",
-    "image": "images/d5/q34.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hva betyr skiltet?",
-    "options": [
-      "Parkeringsplass for lastebiler",
-      "Parkeringsplass tillatt for alle kjøretøy",
-      "Omkjøringsrute for store kjøretøy",
-      "Vegvisning til nærmeste terminal"
-    ],
-    "answer": null,
-    "explanation": "Avhenger av hvilket skilt som vises i oppgaven.",
-    "image": "images/d5/q35.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du som kjører buss kan bruke feltet helt til høyre. Hvilket andre kjøretøy kan bruke det?",
-    "options": ["Taxi med inntil 5 sitteplasser", "Sykkel", "Lastebil", "Traktor"],
-    "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q36.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Når kan langt overheng på buss skape problemer?",
-    "options": ["Ved kjøring på rett veg", "Ved rygging rett bakover", "Ved svinging i trange kryss", "Ved skift av kjørefelt"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q37.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvilken informasjon gir vegoppmerkingen deg når du kjører buss?",
-    "options": [
-      "Den viser at det kun er ett kjørefelt",
-      "Den varsler om svak vegskulder",
-      "Det kan bli liten plass når du møter andre kjøretøy",
-      "Den viser at du snart kommer til tettbygde strøk"
-    ],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q38.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss i kollektivfelt og kommer til et signalregulert kryss. Den hvite pilen betyr det samme som...",
-    "options": ["Rødt og gult på", "Grønt på", "Gult på", "Rødt på"],
+    "category": "Yrkestransport og lover",
+    "question": "Hvor lenge gjelder et YSK-bevis for buss?",
+    "options": ["3 år", "5 år", "10 år", "Livstid"],
     "answer": 1,
-    "explanation": "",
-    "image": "images/d5/q39.png"
+    "explanation": "Yrkessjåførkompetanse må fornyes hvert 5. år."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Du kjører buss i kollektivfeltet som er lengst til høyre. Hva betyr lyskombinasjonen?",
+    "category": "Yrkestransport og lover",
+    "question": "Hva er hovedhensikten med kjøre- og hviletidsbestemmelsene?",
     "options": [
-      "Kan svinge til høyre fordi det er hvit «S»",
-      "Kan svinge til høyre fordi det er grønt lys",
-      "Kan kjøre rett frem fordi det er grønt lys",
-      "Kan ikke kjøre fordi det er hvit «S»"
-    ],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q40.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "God framkommelighet med buss krever...",
-    "options": [
-      "Godt samarbeid med andre trafikanter",
-      "Høy gjennomsnittsfart",
-      "Liten avstand til forankjørende",
-      "At vegens skuldrer benyttes"
+      "Sikre trafikksikkerhet og hvile for sjåføren",
+      "Øke arbeidsgivers effektivitet",
+      "Spare drivstoff",
+      "Gi raskere reiser"
     ],
     "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q41.png"
+    "explanation": "Bestemmelsene skal hindre trøtthet og ulykker."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvordan skal en bussfører forholde seg ved forbikjøring av syklister på landevegen?",
+    "category": "Yrkestransport og lover",
+    "question": "Når skal fartsskriverens diagramblad skiftes?",
     "options": [
-      "Holde en meters avstand",
-      "Holde bussen innenfor eget kjørefelt",
-      "Avpasse farten og holde god avstand",
-      "Avpasse farten etter fartsgrensen på stedet"
+      "Ved dagslutt eller når det er fullt",
+      "Annenhver uke",
+      "Hver 1000 km",
+      "Ved hver inspeksjon"
     ],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q42.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "I en gitt hastighet blir bremselengden ca. 25 meter. Hvor lang blir bremselengden når hastigheten dobles?",
-    "options": ["Ca. 50 meter", "Ca. 75 meter", "Ca. 100 meter", "Ca. 125 meter"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q43.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Du kjører i mørket og har møtende trafikk. Hvilket lys skal være tent når du står i ro på en bussholdeplass?",
-    "options": ["Tåkelys", "Fjernlys", "Parkeringslys", "Nærlys"],
-    "answer": 2,
-    "explanation": "",
-    "image": "images/d5/q44.png"
-  },
-  {
-    "category": "(Klasse D)",
-    "question": "Hvem er ansvarlig for at vikepliktbestemmelsene ved rygging overholdes?",
-    "options": ["Bussføreren", "Busselskapet", "Passasjeren", "Hjelpemannen"],
     "answer": 0,
-    "explanation": "",
-    "image": "images/d5/q45.png"
+    "explanation": "Diagramblad skal byttes daglig eller når det er fullt."
   },
   {
-    "category": "(Klasse D)",
-    "question": "Hvordan kan miljøet spares ved kjøring med buss?",
+    "category": "Kjøring og miljø",
+    "question": "Hva oppnår du ved å kjøre med jevn hastighet og riktig gir?",
     "options": [
-      "Unngå bruk av hjelpesbremser",
-      "Kjør på høyt turtall",
-      "Tidlig fartsreduksjon for å få flere girskifter",
-      "Færrest mulig girskifter"
+      "Lavere drivstofforbruk",
+      "Mer dekkslitasje",
+      "Bedre akselerasjon",
+      "Økt bremseslitasje"
     ],
-    "answer": 3,
-    "explanation": "",
-    "image": "images/d5/q46.png"
+    "answer": 0,
+    "explanation": "Jevn kjøring gir lavere forbruk og mindre slitasje."
+  },
+  {
+    "category": "Kjøring og miljø",
+    "question": "Hvordan påvirker overfylte dekk miljøet?",
+    "options": [
+      "Øker rullemotstanden",
+      "Reduserer utslipp",
+      "Gir farlig grep",
+      "Forbedrer bremseevnen"
+    ],
+    "answer": 1,
+    "explanation": "Riktig dekktrykk reduserer drivstofforbruk og utslipp."
+  },
+  {
+    "category": "Kjøring og miljø",
+    "question": "Hva er beste måte å bremse ned før et lyskryss?",
+    "options": [
+      "Trinnvis og tidlig",
+      "Hardt og sent",
+      "Med håndbrems",
+      "Slå av motoren"
+    ],
+    "answer": 0,
+    "explanation": "Tidlig og rolig nedbremsing sparer drivstoff og gir sikker stopp."
+  },
+  {
+    "category": "Førstehjelp og ulykker",
+    "question": "Hva er første handling på skadested?",
+    "options": [
+      "Sikre stedet",
+      "Varsle nødetater",
+      "Gi førstehjelp",
+      "Flytte busspassasjerer"
+    ],
+    "answer": 0,
+    "explanation": "Sikre stedet først for å hindre flere ulykker."
+  },
+  {
+    "category": "Førstehjelp og ulykker",
+    "question": "Hvordan stopper du en sterk blødning fra benet?",
+    "options": [
+      "Trykk direkte på såret og løft benet",
+      "Kjøl ned med vann",
+      "Legg på is",
+      "Vent på ambulanse uten å gjøre noe"
+    ],
+    "answer": 0,
+    "explanation": "Trykk og heving reduserer blodtap."
+  },
+  {
+    "category": "Førstehjelp og ulykker",
+    "question": "Hva gjør du hvis en person ikke puster?",
+    "options": [
+      "Gi 30 brystkompresjoner og 2 innblåsninger",
+      "Gi vann",
+      "Sjekk ID",
+      "Løft beina"
+    ],
+    "answer": 0,
+    "explanation": "Start hjerte-lungeredning umiddelbart (30:2)."
+  },
+  {
+    "category": "Førstehjelp og ulykker",
+    "question": "Hva er viktigst ved mistanke om nakkeskade?",
+    "options": [
+      "Hindre bevegelser av hodet og nakken",
+      "Gi mat og drikke",
+      "Flytte personen",
+      "Massere nakken"
+    ],
+    "answer": 0,
+    "explanation": "Stabiliser hodet og nakken til hjelpen kommer."
+  },
+  {
+    "category": "Førstehjelp og ulykker",
+    "question": "Hva gjør du om passasjer får brannskade?",
+    "options": [
+      "Kjøl med kaldt vann i minst 20 minutter",
+      "Smør på krem",
+      "Ta av klær raskt",
+      "Pakk inn i plast"
+    ],
+    "answer": 0,
+    "explanation": "Nedkjøling med vann begrenser skadeomfanget."
   }
 ];
-
 
 const SAVE_KEY="bus_exam_nb_v1";
 let mode="practice", pool=[], idx=0, answered=[], correct=[], revealed=[];
